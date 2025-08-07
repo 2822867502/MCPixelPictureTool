@@ -75,7 +75,7 @@ public class PixelPictureMaker {
             case MODE_VERTICAL: {
                 size = new int[]{width, height, 1};
                 for (int x = 0; x < width; x++) {
-                    for (int y = height; y > 0; y--) {
+                    for (int y = 0; y < height; y++) {
                         int finalX = x;
                         int finalY = y;
                         submitTask(() -> perPixel(finalX, finalY, finalX, height - finalY - 1, 0));

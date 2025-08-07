@@ -26,6 +26,7 @@ public class GUIUtils {
         OKDialog dialog = new OKDialog(title, content, owner);
         dialog.pack();
         dialog.setMinimumSize(dialog.getSize());
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
 
@@ -33,6 +34,7 @@ public class GUIUtils {
         IconOKDialog dialog = new IconOKDialog(title, icon, content, owner);
         dialog.pack();
         dialog.setMinimumSize(dialog.getSize());
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
 
@@ -69,6 +71,7 @@ public class GUIUtils {
     public static UseBlocksChooser useBlocksChooserBuild(String dialogTitle, Set<Block> selectedBlocks, JFrame owner) {
         UseBlocksChooser chooser = new UseBlocksChooser(owner, selectedBlocks);
         chooser.setTitle(dialogTitle);
+        chooser.setLocationRelativeTo(null);
         return chooser;
     }
 
