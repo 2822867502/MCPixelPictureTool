@@ -1,0 +1,17 @@
+ren black_terracotta.png black_terracotta.ºÚÉ«ÌÕÍß.png
+ren blue_terracotta.png blue_terracotta.À¶É«ÌÕÍß.png
+ren brown_terracotta.png brown_terracotta.×ØÉ«ÌÕÍß.png
+ren cyan_terracotta.png cyan_terracotta.ÇàÉ«ÌÕÍß.png
+ren gray_terracotta.png gray_terracotta.»ÒÉ«ÌÕÍß.png
+ren green_terracotta.png green_terracotta.ÂÌÉ«ÌÕÍß.png
+ren light_blue_terracotta.png light_blue_terracotta.µ­À¶É«ÌÕÍß.png
+ren light_gray_terracotta.png light_gray_terracotta.µ­»ÒÉ«ÌÕÍß.png
+ren lime_terracotta.png lime_terracotta.»ÆÂÌÉ«ÌÕÍß.png
+ren magenta_terracotta.png magenta_terracotta.Æ·ºìÉ«ÌÕÍß.png
+ren orange_terracotta.png orange_terracotta.³ÈÉ«ÌÕÍß.png
+ren pink_terracotta.png pink_terracotta.·ÛºìÉ«ÌÕÍß.png
+ren purple_terracotta.png purple_terracotta.×ÏÉ«ÌÕÍß.png
+ren red_terracotta.png red_terracotta.ºìÉ«ÌÕÍß.png
+ren white_terracotta.png white_terracotta.°×É«ÌÕÍß.png
+ren yellow_terracotta.png yellow_terracotta.»ÆÉ«ÌÕÍß.png
+ren terracotta.png terracotta.ÌÕÍß.png

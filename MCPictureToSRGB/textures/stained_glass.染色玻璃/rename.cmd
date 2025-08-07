@@ -1,0 +1,16 @@
+ren black_stained_glass.png black_stained_glass.ºÚÉ«È¾É«²£Á§.png
+ren blue_stained_glass.png blue_stained_glass.À¶É«È¾É«²£Á§.png
+ren brown_stained_glass.png brown_stained_glass.×ØÉ«È¾É«²£Á§.png
+ren cyan_stained_glass.png cyan_stained_glass.ÇàÉ«È¾É«²£Á§.png
+ren gray_stained_glass.png gray_stained_glass.»ÒÉ«È¾É«²£Á§.png
+ren green_stained_glass.png green_stained_glass.ÂÌÉ«È¾É«²£Á§.png
+ren light_blue_stained_glass.png light_blue_stained_glass.µ­À¶É«È¾É«²£Á§.png
+ren light_gray_stained_glass.png light_gray_stained_glass.µ­»ÒÉ«È¾É«²£Á§.png
+ren lime_stained_glass.png lime_stained_glass.»ÆÂÌÉ«È¾É«²£Á§.png
+ren magenta_stained_glass.png magenta_stained_glass.Æ·ºìÉ«È¾É«²£Á§.png
+ren orange_stained_glass.png orange_stained_glass.³ÈÉ«È¾É«²£Á§.png
+ren pink_stained_glass.png pink_stained_glass.·ÛºìÉ«È¾É«²£Á§.png
+ren purple_stained_glass.png purple_stained_glass.×ÏÉ«È¾É«²£Á§.png
+ren red_stained_glass.png red_stained_glass.ºìÉ«È¾É«²£Á§.png
+ren white_stained_glass.png white_stained_glass.°×É«È¾É«²£Á§.png
+ren yellow_stained_glass.png yellow_stained_glass.»ÆÉ«È¾É«²£Á§.png

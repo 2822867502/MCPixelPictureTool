@@ -1,0 +1,16 @@
+ren black_carpet.png black_carpet.黑色地毯.png
+ren blue_carpet.png blue_carpet.蓝色地毯.png
+ren brown_carpet.png brown_carpet.棕色地毯.png
+ren cyan_carpet.png cyan_carpet.青色地毯.png
+ren gray_carpet.png gray_carpet.灰色地毯.png
+ren green_carpet.png green_carpet.绿色地毯.png
+ren light_blue_carpet.png light_blue_carpet.淡蓝色地毯.png
+ren light_gray_carpet.png light_gray_carpet.淡灰色地毯.png
+ren lime_carpet.png lime_carpet.黄绿色地毯.png
+ren magenta_carpet.png magenta_carpet.品红色地毯.png
+ren orange_carpet.png orange_carpet.橙色地毯.png
+ren pink_carpet.png pink_carpet.粉红色地毯.png
+ren purple_carpet.png purple_carpet.紫色地毯.png
+ren red_carpet.png red_carpet.红色地毯.png
+ren white_carpet.png white_carpet.白色地毯.png
+ren yellow_carpet.png yellow_carpet.黄色地毯.png

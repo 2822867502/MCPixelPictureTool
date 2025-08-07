@@ -1,0 +1,16 @@
+ren black_wool.png black_carpet.png
+ren blue_wool.png blue_carpet.png
+ren brown_wool.png brown_carpet.png
+ren cyan_wool.png cyan_carpet.png
+ren gray_wool.png gray_carpet.png
+ren green_wool.png green_carpet.png
+ren light_blue_wool.png light_blue_carpet.png
+ren light_gray_wool.png light_gray_carpet.png
+ren lime_wool.png lime_carpet.png
+ren magenta_wool.png magenta_carpet.png
+ren orange_wool.png orange_carpet.png
+ren pink_wool.png pink_carpet.png
+ren purple_wool.png purple_carpet.png
+ren red_wool.png red_carpet.png
+ren white_wool.png white_carpet.png
+ren yellow_wool.png yellow_carpet.png

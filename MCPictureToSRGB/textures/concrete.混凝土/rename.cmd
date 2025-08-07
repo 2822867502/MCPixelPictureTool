@@ -1,0 +1,16 @@
+ren black_concrete.png black_concrete.黑色混凝土.png
+ren blue_concrete.png blue_concrete.蓝色混凝土.png
+ren brown_concrete.png brown_concrete.棕色混凝土.png
+ren cyan_concrete.png cyan_concrete.青色混凝土.png
+ren gray_concrete.png gray_concrete.灰色混凝土.png
+ren green_concrete.png green_concrete.绿色混凝土.png
+ren light_blue_concrete.png light_blue_concrete.淡蓝色混凝土.png
+ren light_gray_concrete.png light_gray_concrete.淡灰色混凝土.png
+ren lime_concrete.png lime_concrete.黄绿色混凝土.png
+ren magenta_concrete.png magenta_concrete.品红色混凝土.png
+ren orange_concrete.png orange_concrete.橙色混凝土.png
+ren pink_concrete.png pink_concrete.粉红色混凝土.png
+ren purple_concrete.png purple_concrete.紫色混凝土.png
+ren red_concrete.png red_concrete.红色混凝土.png
+ren white_concrete.png white_concrete.白色混凝土.png
+ren yellow_concrete.png yellow_concrete.黄色混凝土.png

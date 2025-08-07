@@ -1,0 +1,16 @@
+ren black_wool.png black_wool.ºÚÉ«ÑòÃ«.png
+ren blue_wool.png blue_wool.À¶É«ÑòÃ«.png
+ren brown_wool.png brown_wool.×ØÉ«ÑòÃ«.png
+ren cyan_wool.png cyan_wool.ÇàÉ«ÑòÃ«.png
+ren gray_wool.png gray_wool.»ÒÉ«ÑòÃ«.png
+ren green_wool.png green_wool.ÂÌÉ«ÑòÃ«.png
+ren light_blue_wool.png light_blue_wool.µ­À¶É«ÑòÃ«.png
+ren light_gray_wool.png light_gray_wool.µ­»ÒÉ«ÑòÃ«.png
+ren lime_wool.png lime_wool.»ÆÂÌÉ«ÑòÃ«.png
+ren magenta_wool.png magenta_wool.Æ·ºìÉ«ÑòÃ«.png
+ren orange_wool.png orange_wool.³ÈÉ«ÑòÃ«.png
+ren pink_wool.png pink_wool.·ÛºìÉ«ÑòÃ«.png
+ren purple_wool.png purple_wool.×ÏÉ«ÑòÃ«.png
+ren red_wool.png red_wool.ºìÉ«ÑòÃ«.png
+ren white_wool.png white_wool.°×É«ÑòÃ«.png
+ren yellow_wool.png yellow_wool.»ÆÉ«ÑòÃ«.png

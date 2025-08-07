@@ -1,0 +1,16 @@
+ren black_concrete_powder.png black_concrete_powder.黑色混凝土粉末.png
+ren blue_concrete_powder.png blue_concrete_powder.蓝色混凝土粉末.png
+ren brown_concrete_powder.png brown_concrete_powder.棕色混凝土粉末.png
+ren cyan_concrete_powder.png cyan_concrete_powder.青色混凝土粉末.png
+ren gray_concrete_powder.png gray_concrete_powder.灰色混凝土粉末.png
+ren green_concrete_powder.png green_concrete_powder.绿色混凝土粉末.png
+ren light_blue_concrete_powder.png light_blue_concrete_powder.淡蓝色混凝土粉末.png
+ren light_gray_concrete_powder.png light_gray_concrete_powder.淡灰色混凝土粉末.png
+ren lime_concrete_powder.png lime_concrete_powder.黄绿色混凝土粉末.png
+ren magenta_concrete_powder.png magenta_concrete_powder.品红色混凝土粉末.png
+ren orange_concrete_powder.png orange_concrete_powder.橙色混凝土粉末.png
+ren pink_concrete_powder.png pink_concrete_powder.粉红色混凝土粉末.png
+ren purple_concrete_powder.png purple_concrete_powder.紫色混凝土粉末.png
+ren red_concrete_powder.png red_concrete_powder.红色混凝土粉末.png
+ren white_concrete_powder.png white_concrete_powder.白色混凝土粉末.png
+ren yellow_concrete_powder.png yellow_concrete_powder.黄色混凝土粉末.png

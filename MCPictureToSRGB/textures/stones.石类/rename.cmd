@@ -1,0 +1,12 @@
+ren stone.png stone.石头.png
+ren granite.png granite.花岗岩.png
+ren diorite.png diorite.闪长岩.png
+ren andesite.png andesite.安山岩.png
+ren cobblestone.png cobblestone.圆石.png
+ren mossy_cobblestone.png mossy_cobblestone.苔石.png
+ren deepslate.png deepslate.深板岩.png
+ren calcite.png calcite.方解石.png
+ren cobbled_deepslate.png cobbled_deepslate.深板岩圆石.png
+ren blackstone.png blackstone.黑石.png
+ren end_stone.png end_stone.末地石.png
+ren prismarine.png prismarine.海晶石.png

@@ -1,0 +1,16 @@
+ren black_glazed_terracotta.png black_glazed_terracotta.黑色带釉陶瓦.png
+ren blue_glazed_terracotta.png blue_glazed_terracotta.蓝色带釉陶瓦.png
+ren brown_glazed_terracotta.png brown_glazed_terracotta.棕色带釉陶瓦.png
+ren cyan_glazed_terracotta.png cyan_glazed_terracotta.青色带釉陶瓦.png
+ren gray_glazed_terracotta.png gray_glazed_terracotta.灰色带釉陶瓦.png
+ren green_glazed_terracotta.png green_glazed_terracotta.绿色带釉陶瓦.png
+ren light_blue_glazed_terracotta.png light_blue_glazed_terracotta.淡蓝色带釉陶瓦.png
+ren light_gray_glazed_terracotta.png light_gray_glazed_terracotta.淡灰色带釉陶瓦.png
+ren lime_glazed_terracotta.png lime_glazed_terracotta.黄绿色带釉陶瓦.png
+ren magenta_glazed_terracotta.png magenta_glazed_terracotta.品红色带釉陶瓦.png
+ren orange_glazed_terracotta.png orange_glazed_terracotta.橙色带釉陶瓦.png
+ren pink_glazed_terracotta.png pink_glazed_terracotta.粉红色带釉陶瓦.png
+ren purple_glazed_terracotta.png purple_glazed_terracotta.紫色带釉陶瓦.png
+ren red_glazed_terracotta.png red_glazed_terracotta.红色带釉陶瓦.png
+ren white_glazed_terracotta.png white_glazed_terracotta.白色带釉陶瓦.png
+ren yellow_glazed_terracotta.png yellow_glazed_terracotta.黄色带釉陶瓦.png

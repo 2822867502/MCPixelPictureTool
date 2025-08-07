@@ -1,0 +1,9 @@
+ren coal_block.png coal_block.煤炭块.png
+ren iron_block.png iron_block.铁块.png
+ren gold_block.png gold_block.金块.png
+ren diamond_block.png diamond_block.钻石块.png
+ren emerald_block.png emerald_block.绿宝石块.png
+ren redstone_block.png redstone_block.红石块.png
+ren lapis_block.png lapis_block.青金石块.png
+ren netherite_block.png netherite_block.下界合金块.png
+ren copper_block.png copper_block.铜块.png
