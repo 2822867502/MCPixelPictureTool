@@ -109,8 +109,6 @@ public class MainFrame {
 
     }
 
-    private static Method $$$cachedGetBundleMethod$$$ = null;
-
     private static void setImageSize(double imageSize, BufferedImage image, JLabel imageLabel) {
         if (image != null) {
             double rate = imageSize / Math.max(image.getWidth(imageLabel), image.getHeight(imageLabel));
@@ -523,17 +521,7 @@ public class MainFrame {
         panel6.add(makeButton, gbc);
     }
 
-    public static void main(String[] args) {
-        GUIUtils.setThemeWithProperty(I18NUtils.getData("default.theme"));
-        MainFrame mainFrame = new MainFrame(new JFrame(I18NUtils.getGUIString("gui.main.frame.title")));
-        mainFrame.mainFrame.setContentPane(mainFrame.mainPanel);
-        mainFrame.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setInitSize();
-        mainFrame.mainFrame.pack();
-        mainFrame.mainFrame.setMinimumSize(mainFrame.mainFrame.getPreferredSize());
-        mainFrame.mainFrame.setLocationRelativeTo(null);
-        mainFrame.mainFrame.setVisible(true);
-    }
+    private static Method $$$cachedGetBundleMethod$$$ = null;
 
     private String $$$getMessageFromBundle$$$(String path, String key) {
         ResourceBundle bundle;
@@ -609,6 +597,18 @@ public class MainFrame {
      */
     public JComponent $$$getRootComponent$$$() {
         return mainPanel;
+    }
+
+    public static void main(String[] args) {
+        GUIUtils.setThemeWithProperty(I18NUtils.getData("default.theme"));
+        MainFrame mainFrame = new MainFrame(new JFrame(I18NUtils.getGUIString("gui.main.frame.title")));
+        mainFrame.mainFrame.setContentPane(mainFrame.mainPanel);
+        mainFrame.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setInitSize();
+        mainFrame.mainFrame.pack();
+        mainFrame.mainFrame.setMinimumSize(mainFrame.mainFrame.getPreferredSize());
+        mainFrame.mainFrame.setLocationRelativeTo(null);
+        mainFrame.mainFrame.setVisible(true);
     }
 
 }

@@ -3,21 +3,28 @@ package org.zlk.mcpixelpicturetool.type.color;
 import java.util.Objects;
 
 public class SRGB implements Color {
+    public final int a;
     public final int r;
     public final int g;
     public final int b;
 
-    public SRGB(int r, int g, int b) {
+    public SRGB(int a, int r, int g, int b) {
+        this.a = a;
         this.r = r;
         this.g = g;
         this.b = b;
     }
 
+    public SRGB(int r, int g, int b) {
+        this(0xff,r,g,b);
+    }
+
     public SRGB(int rgb) {
+        this.a = (rgb & 0xff000000) >> 24;
         this.r = (rgb & 0x00ff0000) >> 16;
         this.g = (rgb & 0x0000ff00) >> 8;
         this.b = (rgb & 0x000000ff);
-    }//alpha通道自动忽略
+    }
 
     private static double toLinearRGB(double c) {
         return (c > 0.04045) ? Math.pow((c + 0.055) / 1.055, 2.4) : c / 12.92;
@@ -34,8 +41,8 @@ public class SRGB implements Color {
     }
 
     public int toInt() {
-        return 0xFF000000 + ((r << 16) + (g << 8) + b);
-    }//alpha通道自动忽略
+        return ((a << 24) + (r << 16) + (g << 8) + b);
+    }
 
     @Override
     public boolean equals(Object object) {

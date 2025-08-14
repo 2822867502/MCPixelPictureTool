@@ -110,12 +110,17 @@ public class PixelPictureMaker {
 
     private void perPixel(int pixelX, int pixelY, int targetX, int targetY, int targetZ) {
         SRGB srgb = new SRGB(resizedImage.getRGB(pixelX, pixelY));
-        Lab lab = ColorUtils.RGBToLab(srgb);
-        Lab closeLab = ColorUtils.getCloseColor(labToBlocks.keySet(), lab);
-        Block block = labToBlocks.get(closeLab);
-        previewImage.setRGB(pixelX, pixelY, block.srgb.toInt());
-        blocksToPalettesMap.put(block);
-        blocks.add(NBTUtils.getBlockNBT(blocksToPalettesMap, block, targetX, targetY, targetZ));
+        if (srgb.a != 0x00) {
+            Lab lab = ColorUtils.RGBToLab(srgb);
+            Lab closeLab = ColorUtils.getCloseColor(labToBlocks.keySet(), lab);
+            Block block = labToBlocks.get(closeLab);
+            previewImage.setRGB(pixelX, pixelY, block.srgb.toInt());
+            blocksToPalettesMap.put(block);
+            blocks.add(NBTUtils.getBlockNBT(blocksToPalettesMap, block, targetX, targetY, targetZ));
+        } else {
+            previewImage.setRGB(pixelX, pixelY, srgb.toInt());
+            //如果是透明色就不要填充方块了
+        }
     }
 
     private void submitTask(Runnable runnable) {
