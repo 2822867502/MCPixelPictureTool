@@ -1,14 +1,14 @@
 package org.zlk.mcpixelpicturetool.form;
 
-import org.zlk.mcpixelpicturetool.PixelPictureMaker;
 import org.zlk.mcpixelpicturetool.form.dialog.UseBlocksChooser;
+import org.zlk.mcpixelpicturetool.maker.base.type.UseThreadCalculator;
+import org.zlk.mcpixelpicturetool.maker.generator.picture.PixelPictureGenerator;
+import org.zlk.mcpixelpicturetool.maker.processor.picture.GeneratePixelPictureProcessor;
 import org.zlk.mcpixelpicturetool.type.Block;
 import org.zlk.mcpixelpicturetool.type.BlocksFormatter;
 import org.zlk.mcpixelpicturetool.type.SuffixFileFilter;
 import org.zlk.mcpixelpicturetool.type.property.KeyValueI18NProperty;
-import org.zlk.mcpixelpicturetool.utils.GUIUtils;
-import org.zlk.mcpixelpicturetool.utils.I18NUtils;
-import org.zlk.mcpixelpicturetool.utils.ImageUtils;
+import org.zlk.mcpixelpicturetool.utils.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -49,7 +49,7 @@ public class MainFrame {
     private File file;
     private BufferedImage originImage;
     private BufferedImage previewImage;
-    private PixelPictureMaker maker;
+    private final PixelPictureGenerator generator = new PixelPictureGenerator(ProcessorUtils.PROCESSOR_MANAGER);
 
 
     public MainFrame(JFrame mainFrame) {
@@ -76,19 +76,40 @@ public class MainFrame {
             NumberFormatter numberFormatter = new NumberFormatter(NumberFormat.getIntegerInstance());
             numberFormatter.setMinimum(0);
             numberFormatter.setMaximum(Integer.MAX_VALUE);
-            targetHeightInput.setFormatterFactory(new DefaultFormatterFactory(numberFormatter));
-            targetHeightInput.setValue(numberFormatter.stringToValue(I18NUtils.getDataString("default.targetHeight")));
-            targetWidthInput.setFormatterFactory(new DefaultFormatterFactory(numberFormatter));
-            targetWidthInput.setValue(numberFormatter.stringToValue(I18NUtils.getDataString("default.targetWidth")));
 
+            targetHeightInput.addPropertyChangeListener("value", (e) -> {
+                generator.setTargetHeight((Integer) targetHeightInput.getValue());
+                updateMakeButton();
+            });
+            targetHeightInput.setFormatterFactory(new DefaultFormatterFactory(numberFormatter));
+            int defaultHeight = (int) numberFormatter.stringToValue(I18NUtils.getDataString("default.targetHeight"));
+            targetHeightInput.setValue(defaultHeight);
+
+            targetWidthInput.addPropertyChangeListener("value", (e) -> {
+                generator.setTargetWidth((Integer) targetWidthInput.getValue());
+                updateMakeButton();
+            });
+            targetWidthInput.setFormatterFactory(new DefaultFormatterFactory(numberFormatter));
+            int defaultWidth = (int) numberFormatter.stringToValue(I18NUtils.getDataString("default.targetWidth"));
+            targetWidthInput.setValue(defaultWidth);
+
+            useBlocksInput.addPropertyChangeListener("value", (e) -> {
+                generator.setChoiceBlocks((Block[]) useBlocksInput.getValue());
+                updateMakeButton();
+            });
             BlocksFormatter blocksFormatter = new BlocksFormatter();
             useBlocksInput.setFormatterFactory(new DefaultFormatterFactory(blocksFormatter));
-            useBlocksInput.setValue(blocksFormatter.stringToValue(I18NUtils.getDataString("default.useBlocks")));
+            Block[] defaultBlocks = (Block[]) blocksFormatter.stringToValue(I18NUtils.getDataString("default.useBlocks"));
+            useBlocksInput.setValue(defaultBlocks);
+
         } catch (ParseException e) {
             GUIUtils.simpleErrorDialog(I18NUtils.getGUIString("gui.main.error.unexpected_error"), mainFrame);
             throw new RuntimeException(e);
         }
 
+        modeInput.addActionListener((e) -> {
+            generator.setMode(modeInput.getSelectedIndex());
+        });
         KeyValueI18NProperty[] modes = I18NUtils.getDatas("data.modes");
         String defaultModeKey = I18NUtils.getDataString("default.key.mode");
         //这里实际上上有点麻烦，但是如果不这么写
@@ -107,6 +128,8 @@ public class MainFrame {
         menu.add(GUIUtils.createHelpMenu());
         mainFrame.setJMenuBar(menu);
 
+        //warn 仅供测试
+        generator.setTransparentStrategy(GeneratePixelPictureProcessor.STRATEGY_NOTHING);
     }
 
     private static void setImageSize(double imageSize, BufferedImage image, JLabel imageLabel) {
@@ -141,7 +164,10 @@ public class MainFrame {
                         JFileChooser.FILES_ONLY,
                         filter);
         SwingUtilities.invokeLater(() -> {
-            int result = chooser.showDialog(this.mainFrame, I18NUtils.getGUIString("gui.main.open.file.filechooser.button"));
+            int result = 0;
+
+            result = chooser.showDialog(this.mainFrame, I18NUtils.getGUIString("gui.main.open.file.filechooser.button"));
+
             switch (result) {
                 case JFileChooser.APPROVE_OPTION: {
                     file = chooser.getSelectedFile();
@@ -152,11 +178,17 @@ public class MainFrame {
                     }
                     filePathText.setText(file.getAbsolutePath());
                     try {
-                        originImage = ImageUtils.fromFile(file);
+                        generator.setAndLoadOriginImageFile(file);
+                        originImage = generator.getOriginImageOrLoad();
+                        //warn 仅供测试
                     } catch (IOException e) {
                         GUIUtils.simpleErrorDialog(I18NUtils.getGUIString("gui.main.image.origin.cannot_load_image", file.toString()), mainFrame);
                     }
-                    maker = new PixelPictureMaker(originImage);
+
+                    int processors = Runtime.getRuntime().availableProcessors();
+                    generator.setCastChoiceBlockToLabUseThreadCalculator(new UseThreadCalculator(processors, UseThreadCalculator.SET_USE_THREAD));
+                    generator.setGeneratePixelPictureUseThreadCalculator(new UseThreadCalculator(processors, UseThreadCalculator.SET_USE_THREAD));
+                    //warn 仅供测试
                     previewImage = null;
                     resizeImage(null);
                     updateSaveButton();
@@ -196,12 +228,16 @@ public class MainFrame {
                 GUIUtils.simpleWarnDialog(I18NUtils.getGUIString("gui.main.make.warn.please_choose_use_blocks"), mainFrame);
                 return;
             }
-            maker.make(
-                    targetWidth,
-                    targetHeight,
-                    blocks,
-                    modeInput.getSelectedIndex());
-            previewImage = maker.getPreviewImage();
+            generator.clearAll();
+            //warn 乱七八糟的clear方法，真不能用
+            try {
+                generator.setAndLoadOriginImageFile(file);
+            } catch (IOException e) {
+                GUIUtils.simpleErrorDialog(I18NUtils.getGUIString("gui.main.image.origin.cannot_load_image", file.toString()), mainFrame);
+            }
+            //warn 这不是好代码，仅供临时使用测试
+            generator.generate();
+            previewImage = generator.getPreviewImageOrExport();//warn 仅供测试
             resizeImage(null);
             updateSaveButton();
             GUIUtils.simpleInfoDialog(I18NUtils.getGUIString("gui.main.make.success"), mainFrame);
@@ -209,11 +245,11 @@ public class MainFrame {
     }
 
     private void updateSaveButton() {
-        saveButton.setEnabled(maker.getProcess() == PixelPictureMaker.PROCESS_END);
+        saveButton.setEnabled(generator.isGenerated());
     }
 
     private void updateMakeButton() {
-        makeButton.setEnabled(maker != null);
+        makeButton.setEnabled(generator.canGenerate());
     }
 
     private void save(ActionEvent evt) {
@@ -237,7 +273,10 @@ public class MainFrame {
                     return;
                 }
                 try {
-                    maker.write(saveFile);
+                    NBTUtils.write(
+                            generator.getNBT(),
+                            saveFile
+                    );
                 } catch (IOException e) {
                     GUIUtils.simpleErrorDialog(I18NUtils.getGUIString("gui.main.save.cannot_write_to_file", file.toString()), mainFrame);
                 }

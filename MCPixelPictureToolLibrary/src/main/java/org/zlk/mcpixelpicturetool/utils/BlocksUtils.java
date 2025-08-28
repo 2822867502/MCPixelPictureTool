@@ -2,6 +2,7 @@ package org.zlk.mcpixelpicturetool.utils;
 
 import org.zlk.mcpixelpicturetool.type.Block;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BlocksUtils {
@@ -16,16 +17,26 @@ public class BlocksUtils {
         try {
             //你可能会好奇为什么不用property包的东西简化，事实上，这个比property包写的早
             //todo 复用
-            String blockString = string.replace("[", "").replace("]", "").replace(" ", "");
+            String blockString;
+            if (!string.matches("\\[.*\\]")) {
+                return new Block[0];
+            } else {
+                blockString = string.substring(
+                        string.indexOf('[') + 1,
+                        string.indexOf(']')
+                ).trim();
+            }
+
             if (blockString.isEmpty()) return new Block[0];
             String[] blockStrings = blockString.split(",");
-            Block[] result = new Block[blockStrings.length];
-            for (int i = 0; i < blockStrings.length; i++) {
-                Block block = parseBlock(blockStrings[i]);
+            ArrayList<Block> result = new ArrayList<>();
+            //不能用数组，否则有默认初始化值为null的问题
+            for (String s : blockStrings) {
+                Block block = parseBlock(s);
                 if (block == null) continue;
-                result[i] = block;
+                result.add(block);
             }
-            return result;
+            return result.toArray(new Block[0]);
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
             throw new Exception(e);
         }

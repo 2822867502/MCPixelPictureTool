@@ -20,10 +20,15 @@ public class SRGB implements Color {
     }
 
     public SRGB(int rgb) {
-        this.a = (rgb & 0xff000000) >> 24;
-        this.r = (rgb & 0x00ff0000) >> 16;
-        this.g = (rgb & 0x0000ff00) >> 8;
-        this.b = (rgb & 0x000000ff);
+//        this.a = (rgb & 0xff000000) >> 24;
+//        this.r = (rgb & 0x00ff0000) >> 16;
+//        this.g = (rgb & 0x0000ff00) >> 8;
+//        this.b = (rgb & 0x000000ff);
+        this.a = (rgb >> 24) & 0xff;
+        this.r = (rgb >> 16) & 0xff;
+        this.g = (rgb >> 8) & 0xff;
+        this.b = rgb & 0xff;
+        //你知道吗，这两种写法结果不一样，太悲催了
     }
 
     private static double toLinearRGB(double c) {

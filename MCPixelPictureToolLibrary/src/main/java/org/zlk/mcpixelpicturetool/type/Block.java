@@ -2,11 +2,13 @@ package org.zlk.mcpixelpicturetool.type;
 
 import net.querz.nbt.tag.CompoundTag;
 import net.querz.nbt.tag.StringTag;
+import org.zlk.mcpixelpicturetool.maker.base.ability.Castable;
+import org.zlk.mcpixelpicturetool.type.color.Color;
 import org.zlk.mcpixelpicturetool.type.color.SRGB;
 
 import java.util.Objects;
 
-public class Block {
+public class Block implements Color, Castable<SRGB> {
     public final String name;
     public final SRGB srgb;
 
@@ -38,5 +40,10 @@ public class Block {
     @Override
     public int hashCode() {
         return Objects.hash(name, srgb);
+    }
+
+    @Override
+    public SRGB cast() {
+        return srgb;
     }
 }
